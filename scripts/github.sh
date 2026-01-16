@@ -1,0 +1,2 @@
+#!/bin/bash
+export GITHUB_TOKEN=ghp_abcdefghijklmnopqrstuvwxyz1234567890
