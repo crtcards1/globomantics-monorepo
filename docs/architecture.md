@@ -1,0 +1,1 @@
+Internal Globomantics architecture documentation.
