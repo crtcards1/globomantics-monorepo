@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  app:
+    image: postgres:15
+    environment:
+      # Database connection string with embedded credentials
+      DATABASE_URL: postgres://appuser:Sup3rS3cr3tP@ssw0rd123@db:5432/appdb
+
+  redis:
+    image: redis:7
+    command: >
+      redis-server
+      --requirepass R3d1sP@ssw0rd!2026
