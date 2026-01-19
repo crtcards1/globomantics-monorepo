@@ -1,0 +1,21 @@
+name: TruffleHog Scan
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  trufflehog:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Gitea already checks out the repository automatically
+
+      - name: Run TruffleHog OSS
+        uses: trufflesecurity/trufflehog@v3
+        continue-on-error: false
+        with:
+          path: .
+          extra_args: --only-verified --fail
