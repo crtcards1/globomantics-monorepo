@@ -1,0 +1,15 @@
+sources:
+  - name: Docker
+    type: SOURCE_TYPE_DOCKER
+    scanPeriod: 12h
+    verify: true
+
+    connection:
+      '@type': type.googleapis.com/sources.Docker
+
+      basicAuth:
+        username: user
+        password: SuperSecretPassword123!!
+
+      images:
+        - trufflesecurity/secrets
