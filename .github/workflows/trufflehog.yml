@@ -1,9 +1,8 @@
-name: TruffleHog Secrets Scan
+name: TruffleHog Secret Scan
 
 on:
   push:
     branches: [ main ]
-  pull_request:
   workflow_dispatch:
   schedule:
     - cron: "0 2 * * *"
@@ -18,10 +17,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Run TruffleHog
+      - name: Run TruffleHog (full git history)
         uses: trufflesecurity/trufflehog@main
         with:
-          path: .
-          extra_args: --debug
-
-
+          scan: git
