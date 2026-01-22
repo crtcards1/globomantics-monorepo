@@ -22,5 +22,6 @@ jobs:
         uses: trufflesecurity/trufflehog@main
         with:
           path: .
-          extra_args: --git-history
+          extra_args: --debug
+
 
