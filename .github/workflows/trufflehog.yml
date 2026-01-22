@@ -1,16 +1,24 @@
-name: TruffleHog Scan
+name: TruffleHog Secret Scan
 
 on:
   push:
     branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *"
 
 jobs:
   trufflehog:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # REQUIRED for git history scanning
+
       - name: Run TruffleHog
-        uses: trufflesecurity/trufflehog@main
+        uses: trufflesecurity/trufflehog@v3
         with:
           path: .
-          extra_args: --only-verified --fail
