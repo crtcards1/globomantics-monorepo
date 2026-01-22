@@ -20,4 +20,6 @@ jobs:
       - name: Run TruffleHog (full git history)
         uses: trufflesecurity/trufflehog@main
         with:
-          scan: git
+          path: .
+          base: ""
+          head: ""
